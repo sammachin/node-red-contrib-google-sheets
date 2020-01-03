@@ -26,7 +26,7 @@ Google sheets uses the follwing syntax to reference a tab and cells of the works
 
 The format is `Sheet1!A1:C3`
 
-Where `Sheet1` is the Sheet name followed by a `!` then the grid of the first cell eg `A1` then a `:` and finally the grid of the last cell eg `C£`
+Where `Sheet1` is the Sheet name followed by a `!` then the grid of the first cell eg `A1` then a `:` and finally the grid of the last cell eg `C3`
 
 A range of cells can be a Row at `A1:A5`, a Column `A1:E1` or even a block such as `A1:C3`
 
