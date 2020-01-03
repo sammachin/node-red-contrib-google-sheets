@@ -1,0 +1,102 @@
+<script type="text/javascript">
+    RED.nodes.registerType('GSheet',{
+        category: 'function',
+        color: '#0da95f',
+        defaults: {
+          creds: {value:"", type:"gauth"},
+          method: {value : ""},
+		  action : {value : ""},
+		  sheet : {value : ""},
+	      cells : {value : ""},
+          name : {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "font-awesome/fa-table",
+        label: function() {
+            return this.name||"GSheet - " + this.method.charAt(0).toUpperCase() + this.method.slice(1);;
+        }
+    });
+    
+    
+</script>
+
+<script type="text/x-red" data-template-name="GSheet">
+    <div class="form-row">
+      <label for="node-config-input-creds">creds</label>
+      <input type="text" id="node-input-creds" >
+    </div>
+    
+ <div class="form-row">
+      <label for="node-input-method"><i class="fa fa-tasks"></i>Method</label>
+      <select type="text" id="node-input-method" style="width:70%;">
+      <option value="get">Get Cells</option>
+      <option value="append">Append Row</option>
+      <option value="update">Update Cells</option>
+      <option value="clear">Clear Cells</option>
+       </select>
+  </div>
+    
+    <div class="form-row">
+        <label for="node-input-sheet">Sheet</label>
+        <input type="text" id="node-input-sheet" placeholder="Sheet ID">
+    </div>
+
+    <div class="form-row">
+        <label for="node-input-cells">Cells</label>
+        <input type="text" id="node-input-cells" placeholder="Sheet1!A1:B2">
+    </div>
+    
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="label">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="GSheet">
+   <p>Google Creds</p>
+    <h3> Input </h3>
+    If Sheet is blank you may specify the sheet id in msg.sheet
+    If Cells are blank you may specif then cells in msg.topic
+    
+    <h3> Output </h3>
+    If  single cell is requested msg.payload will contain the value of that cell,
+    If a single row or column is requested msg.payload will contain an array of values for that row/colum
+    If both row and colums are request msg.payload will contain nested arrays as columns eg for A1:C3 :
+    <code>[["A1","B1","C1"],["A2","B2","C2"],["A3","B3","C3"]]</code>
+</script>
+
+################ AUTH NODE ############## 
+
+<script type="text/javascript">
+    RED.nodes.registerType('gauth',{
+        category: 'config',
+        credentials: {
+          creds: {},
+        },
+        label: function() {
+            var auth = JSON.parse(this.credentials.creds);
+            return auth.client_email;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="gauth">
+    <div class="form-row">
+        <label for="node-config-input-authtoken">Creds</label>
+        <textarea rows="15" cols="120" id="node-config-input-creds" placeholder="Google Service Accounts Credentials JSON"></textarea>
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="gauth">
+    <p>Google Creds</p>
+    <h3>Details</h3>
+    <p>Copy JSON object for a Google Service Account Here.</p>
+    <p>
+    Create a new service account from <a target="new" href="https://console.cloud.google.com/iam-admin/serviceaccounts?_ga=2.184919274.-272657095.1578084478"> This Link</a><br>
+    Download a JSON credentials object for the service account.
+    Give that account access to the sheets API.
+    Share your sheet with the email address of the service account eg <code>nodered@nodered-12345.iam.gserviceaccount.com</code>
+    </p>
+ </script>
+ 
