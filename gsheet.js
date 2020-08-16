@@ -6,6 +6,7 @@ module.exports = function(RED) {
         var node = this;
         this.creds = JSON.parse(RED.nodes.getNode(config.creds).credentials.creds);
         this.method = config.method;
+        this.flatten = config.flatten
         node.on('input', function(msg) {
           if(!config.sheet){
             this.sheet = msg.sheet
@@ -27,6 +28,7 @@ module.exports = function(RED) {
            let sheet = this.sheet;
            let cells = this.cells;
            let method = this.method;
+           let flaten = this.flatten;
            let sheets = google.sheets('v4');
 			     jwtClient.authorize(function (err, tokens) {
 			       if (err) {
@@ -43,7 +45,11 @@ module.exports = function(RED) {
     				         if (err) {
     						       node.error('The API returned an error: ' + err, msg);
     				         } else {
-    						       msg.payload = flatten(response.data.values);
+                       if (flaten){
+                        msg.payload = response.data.values.flat();
+                       } else {
+                        msg.payload = response.data.values;
+                       }
     						       node.send(msg);
     				         }
     			         });
