@@ -22,7 +22,7 @@ The sheet ID can be found in the URL of your google sheet, for example in
 The ID would be `1UuVIH2O38XK0TfPMGHk0HG_ixGLtLk6WoBKh4YSrDm4`
 
 ## Cells
-Google sheets uses the follwing syntax to reference a tab and cells of the worksheet
+Google sheets uses the following syntax to reference a tab and cells of the worksheet
 
 The format is `Sheet1!A1:C3`
 
