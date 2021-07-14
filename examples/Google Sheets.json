@@ -1,0 +1,621 @@
+[
+    {
+        "id": "553d5e29.2be8e8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "17cc972c76da6ca4",
+        "type": "group",
+        "z": "553d5e29.2be8e8",
+        "name": "Clear all values from a Sheet",
+        "style": {
+            "fill": "#ffbfbf",
+            "label": true
+        },
+        "nodes": [
+            "f227013a4cbc77a9",
+            "2617f1e33b3e7a7b",
+            "e8cc52071302c08c"
+        ],
+        "x": 274,
+        "y": 799,
+        "w": 692,
+        "h": 82
+    },
+    {
+        "id": "abac141b2efb65ef",
+        "type": "group",
+        "z": "553d5e29.2be8e8",
+        "name": "Read from Sheet Specifying Cells in Input",
+        "style": {
+            "fill": "#e3f3d3",
+            "label": true
+        },
+        "nodes": [
+            "e28907e9.dc8cd8",
+            "9cc56e53.3215e",
+            "21e6f5b9.b8749a"
+        ],
+        "x": 274,
+        "y": 139,
+        "w": 712,
+        "h": 82
+    },
+    {
+        "id": "d25685a0fc2b19a1",
+        "type": "group",
+        "z": "553d5e29.2be8e8",
+        "name": "Update a Single Cell",
+        "style": {
+            "label": true,
+            "fill": "#ffefbf"
+        },
+        "nodes": [
+            "7d41875f.14a0f",
+            "f1a027b3196fe97c",
+            "deeaaa0d4155fb1a"
+        ],
+        "x": 274,
+        "y": 259,
+        "w": 692,
+        "h": 82
+    },
+    {
+        "id": "d3cb56e147115eb0",
+        "type": "group",
+        "z": "553d5e29.2be8e8",
+        "name": "Append a Row to sheet specified in input",
+        "style": {
+            "fill": "#bfdbef",
+            "label": true
+        },
+        "nodes": [
+            "9ee49239.e1f2",
+            "bc06a247.d627f8",
+            "dd5ab1222b7e28b9"
+        ],
+        "x": 274,
+        "y": 379,
+        "w": 732,
+        "h": 82
+    },
+    {
+        "id": "df1e0d84a6e22b93",
+        "type": "group",
+        "z": "553d5e29.2be8e8",
+        "name": "Read from Sheet specifying Cells in the Node",
+        "style": {
+            "label": true,
+            "fill": "#e3f3d3"
+        },
+        "nodes": [
+            "7d7806fde8efc062",
+            "a2d103942c17e044",
+            "eb920be197f794a6"
+        ],
+        "x": 274,
+        "y": 39,
+        "w": 712,
+        "h": 82
+    },
+    {
+        "id": "fbcc99b9d5504f3f",
+        "type": "group",
+        "z": "553d5e29.2be8e8",
+        "name": "Wait for 3 values then append a row to sheet",
+        "style": {
+            "fill": "#bfdbef",
+            "label": true
+        },
+        "nodes": [
+            "84e0fb01.00e23",
+            "a941521c.68542",
+            "a5f31464.80efa8",
+            "9c9c9285.170da",
+            "1ba47f55c76f9546",
+            "95efab2bde6a4246"
+        ],
+        "x": 274,
+        "y": 519,
+        "w": 812,
+        "h": 162
+    },
+    {
+        "id": "9ee49239.e1f2",
+        "type": "GSheet",
+        "z": "553d5e29.2be8e8",
+        "g": "d3cb56e147115eb0",
+        "creds": "9f9aed1d.9a434",
+        "method": "append",
+        "action": "",
+        "sheet": "1UuVIH2O38XK0TfPMGHk0HG_ixGLtLk6WoBKh4YSrDm4",
+        "cells": "",
+        "flatten": false,
+        "name": "",
+        "x": 590,
+        "y": 420,
+        "wires": [
+            [
+                "dd5ab1222b7e28b9"
+            ]
+        ]
+    },
+    {
+        "id": "bc06a247.d627f8",
+        "type": "inject",
+        "z": "553d5e29.2be8e8",
+        "g": "d3cb56e147115eb0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "cells",
+                "v": "Sheet2",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[1,2,3]",
+        "payloadType": "json",
+        "x": 370,
+        "y": 420,
+        "wires": [
+            [
+                "9ee49239.e1f2"
+            ]
+        ]
+    },
+    {
+        "id": "84e0fb01.00e23",
+        "type": "inject",
+        "z": "553d5e29.2be8e8",
+        "g": "fbcc99b9d5504f3f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "9c9c9285.170da"
+            ]
+        ]
+    },
+    {
+        "id": "a941521c.68542",
+        "type": "inject",
+        "z": "553d5e29.2be8e8",
+        "g": "fbcc99b9d5504f3f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "str",
+        "x": 370,
+        "y": 600,
+        "wires": [
+            [
+                "9c9c9285.170da"
+            ]
+        ]
+    },
+    {
+        "id": "a5f31464.80efa8",
+        "type": "inject",
+        "z": "553d5e29.2be8e8",
+        "g": "fbcc99b9d5504f3f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "str",
+        "x": 370,
+        "y": 640,
+        "wires": [
+            [
+                "9c9c9285.170da"
+            ]
+        ]
+    },
+    {
+        "id": "9c9c9285.170da",
+        "type": "join",
+        "z": "553d5e29.2be8e8",
+        "g": "fbcc99b9d5504f3f",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 590,
+        "y": 600,
+        "wires": [
+            [
+                "1ba47f55c76f9546"
+            ]
+        ]
+    },
+    {
+        "id": "e28907e9.dc8cd8",
+        "type": "GSheet",
+        "z": "553d5e29.2be8e8",
+        "g": "abac141b2efb65ef",
+        "creds": "9f9aed1d.9a434",
+        "method": "get",
+        "action": "",
+        "sheet": "1UuVIH2O38XK0TfPMGHk0HG_ixGLtLk6WoBKh4YSrDm4",
+        "cells": "",
+        "flatten": true,
+        "name": "",
+        "x": 610,
+        "y": 180,
+        "wires": [
+            [
+                "21e6f5b9.b8749a"
+            ]
+        ]
+    },
+    {
+        "id": "7d41875f.14a0f",
+        "type": "inject",
+        "z": "553d5e29.2be8e8",
+        "g": "d25685a0fc2b19a1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 300,
+        "wires": [
+            [
+                "f1a027b3196fe97c"
+            ]
+        ]
+    },
+    {
+        "id": "9cc56e53.3215e",
+        "type": "inject",
+        "z": "553d5e29.2be8e8",
+        "g": "abac141b2efb65ef",
+        "name": "Read Sheet",
+        "props": [
+            {
+                "p": "cells",
+                "v": "Sheet1!A1:C3",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 390,
+        "y": 180,
+        "wires": [
+            [
+                "e28907e9.dc8cd8"
+            ]
+        ]
+    },
+    {
+        "id": "21e6f5b9.b8749a",
+        "type": "debug",
+        "z": "553d5e29.2be8e8",
+        "g": "abac141b2efb65ef",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f1a027b3196fe97c",
+        "type": "GSheet",
+        "z": "553d5e29.2be8e8",
+        "g": "d25685a0fc2b19a1",
+        "creds": "9f9aed1d.9a434",
+        "method": "update",
+        "action": "",
+        "sheet": "1UuVIH2O38XK0TfPMGHk0HG_ixGLtLk6WoBKh4YSrDm4",
+        "cells": "Sheet3!B2",
+        "flatten": false,
+        "name": "",
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "deeaaa0d4155fb1a"
+            ]
+        ]
+    },
+    {
+        "id": "deeaaa0d4155fb1a",
+        "type": "debug",
+        "z": "553d5e29.2be8e8",
+        "g": "d25685a0fc2b19a1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "1ba47f55c76f9546",
+        "type": "GSheet",
+        "z": "553d5e29.2be8e8",
+        "g": "fbcc99b9d5504f3f",
+        "creds": "9f9aed1d.9a434",
+        "method": "append",
+        "action": "",
+        "sheet": "1UuVIH2O38XK0TfPMGHk0HG_ixGLtLk6WoBKh4YSrDm4",
+        "cells": "Sheet2",
+        "flatten": false,
+        "name": "",
+        "x": 790,
+        "y": 600,
+        "wires": [
+            [
+                "95efab2bde6a4246"
+            ]
+        ]
+    },
+    {
+        "id": "dd5ab1222b7e28b9",
+        "type": "debug",
+        "z": "553d5e29.2be8e8",
+        "g": "d3cb56e147115eb0",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "95efab2bde6a4246",
+        "type": "debug",
+        "z": "553d5e29.2be8e8",
+        "g": "fbcc99b9d5504f3f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "f227013a4cbc77a9",
+        "type": "inject",
+        "z": "553d5e29.2be8e8",
+        "g": "17cc972c76da6ca4",
+        "name": "Sheet 2",
+        "props": [
+            {
+                "p": "cells",
+                "v": "Sheet2",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 370,
+        "y": 840,
+        "wires": [
+            [
+                "2617f1e33b3e7a7b"
+            ]
+        ]
+    },
+    {
+        "id": "2617f1e33b3e7a7b",
+        "type": "GSheet",
+        "z": "553d5e29.2be8e8",
+        "g": "17cc972c76da6ca4",
+        "creds": "9f9aed1d.9a434",
+        "method": "clear",
+        "action": "",
+        "sheet": "1UuVIH2O38XK0TfPMGHk0HG_ixGLtLk6WoBKh4YSrDm4",
+        "cells": "",
+        "flatten": false,
+        "name": "",
+        "x": 660,
+        "y": 840,
+        "wires": [
+            [
+                "e8cc52071302c08c"
+            ]
+        ]
+    },
+    {
+        "id": "e8cc52071302c08c",
+        "type": "debug",
+        "z": "553d5e29.2be8e8",
+        "g": "17cc972c76da6ca4",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "7d7806fde8efc062",
+        "type": "GSheet",
+        "z": "553d5e29.2be8e8",
+        "g": "df1e0d84a6e22b93",
+        "creds": "9f9aed1d.9a434",
+        "method": "get",
+        "action": "",
+        "sheet": "1UuVIH2O38XK0TfPMGHk0HG_ixGLtLk6WoBKh4YSrDm4",
+        "cells": "Sheet1!A1:C3",
+        "flatten": false,
+        "name": "",
+        "x": 610,
+        "y": 80,
+        "wires": [
+            [
+                "eb920be197f794a6"
+            ]
+        ]
+    },
+    {
+        "id": "a2d103942c17e044",
+        "type": "inject",
+        "z": "553d5e29.2be8e8",
+        "g": "df1e0d84a6e22b93",
+        "name": "Read Sheet",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 390,
+        "y": 80,
+        "wires": [
+            [
+                "7d7806fde8efc062"
+            ]
+        ]
+    },
+    {
+        "id": "eb920be197f794a6",
+        "type": "debug",
+        "z": "553d5e29.2be8e8",
+        "g": "df1e0d84a6e22b93",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7cc78a6ae9135289",
+        "type": "comment",
+        "z": "553d5e29.2be8e8",
+        "name": "SETUP!",
+        "info": "You will need to generate your own set of credentials to use in the GSheet Node and also edit the SpreadsheetID to be one you have permission to edit.",
+        "x": 110,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9f9aed1d.9a434",
+        "type": "gauth"
+    }
+]

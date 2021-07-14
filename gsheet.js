@@ -14,7 +14,11 @@ module.exports = function(RED) {
             this.sheet = config.sheet;
           }
           if(!config.cells){
-            this.cells = msg.topic
+            if (msg.cells){
+              this.cells = msg.cells
+            } else{
+              this.cells = msg.topic // May remove this in the future now that msg.cells is the reccomended approach,
+            }
           } else {
             this.cells = config.cells;
           }
