@@ -17,7 +17,7 @@ module.exports = function(RED) {
             if (msg.cells){
               this.cells = msg.cells
             } else{
-              this.cells = msg.topic // May remove this in the future now that msg.cells is the reccomended approach,
+              this.cells = msg.topic // May remove this in the future now that msg.cells is the recommended approach,
             }
           } else {
             this.cells = config.cells;
