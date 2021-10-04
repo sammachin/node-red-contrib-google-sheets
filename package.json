@@ -1,6 +1,6 @@
 {
     "name": "node-red-contrib-google-sheets",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "nodered node to get, update, append, and clear google sheets.",
     "author": "Sam Machin",
     "license": "MIT",
@@ -21,6 +21,6 @@
         }
     },
     "dependencies": {
-        "googleapis": "^81.0.0"
+        "googleapis": "^88.0.0"
     }
 }
