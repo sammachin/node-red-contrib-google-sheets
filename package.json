@@ -22,7 +22,7 @@
         "nodes": {
             "gsheet": "gsheet.js"
         },
-        "version": ">=1.0.0",
+        "version": ">=1.0.0"
     },
     "dependencies": {
         "googleapis": "^92.0.0"
