@@ -152,9 +152,21 @@
         credentials: {
           creds: {},
         },
-        label: function() {
-            var auth = JSON.parse(this.credentials.creds);
-            return auth.client_email;
+        defaults: {
+            name : {}
+        },
+        label: function() { 
+            return this.name  || "Unknown"
+        },
+        oneditsave: function (){
+            var creds = document.getElementById('node-config-input-creds').value
+            try{
+                var auth = JSON.parse(creds);
+                this.name = auth.client_email;
+            }
+            catch{
+                this.name = "Unknown"
+            }        
         }
     });
 </script>
@@ -163,6 +175,7 @@
     <div class="form-row">
         <label for="node-config-input-authtoken">Creds</label>
         <textarea rows="15" cols="120" id="node-config-input-creds" placeholder="Google Service Accounts Credentials JSON"></textarea>
+        <input type="hidden" id="node-input-name">
     </div>
 </script>
 
